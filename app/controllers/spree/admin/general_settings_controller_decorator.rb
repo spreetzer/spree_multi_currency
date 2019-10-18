@@ -2,7 +2,7 @@ module Spree
   module Admin
     module GeneralSettingsControllerDecorator
       def self.prepended(base)
-        before_action :update_currency_settings, only: :update
+        base.before_action :update_currency_settings, only: :update
       end
 
       def render(*args)
