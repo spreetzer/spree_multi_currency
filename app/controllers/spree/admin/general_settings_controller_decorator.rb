@@ -1,5 +1,7 @@
 class Spree::Admin::GeneralSettingsControllerDecorator
-  before_action :update_currency_settings, only: :update
+  def self.prepended(base)
+    before_action :update_currency_settings, only: :update
+  end
 
   def render(*args)
     @preferences_currency |= [:allow_currency_change, :show_currency_selector, :supported_currencies]
